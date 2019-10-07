@@ -1,0 +1,95 @@
+Name:         labels-must-match-532t6-4p2mt
+Namespace:    default
+Node:         172.17.8.102/172.17.8.102
+Start Time:   Wed, 28 Aug 2019 14:42:17 +0200
+Labels:       jenkins=slave
+              jenkins/labels-must-match=true
+Annotations:  buildUrl=http://jenkins-ui:8080/job/kubernetes-plugin-test/5/
+              cni.projectcalico.org/podIP=10.244.1.13/32
+Status:       Running
+IP:           10.244.1.13
+Containers:
+  maven:
+    Container ID:  docker://924ca39d71c0fee3c16097b6f87d7ae3224d67608a29b2f93c59d2890dc5a99f
+    Image:         jorgeacetozi/maven:3.5.0-jdk-8-alpine
+    Image ID:      docker-pullable://jorgeacetozi/maven@sha256:13f6c950830adaa0f49d14e7ecc2f1bbeb001a3066e3e651c2441fcb771c2040
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      cat
+    State:          Running
+      Started:      Wed, 28 Aug 2019 14:42:18 +0200
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /home/jenkins/agent from workspace-volume (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-b59kh (ro)
+  mysql:
+    Container ID:   docker://f4207d527a039563b4aa4e92e42603e5d6a16491eda52b248395804803aca155
+    Image:          mysql:5.7
+    Image ID:       docker-pullable://mysql@sha256:1a121f2e7590f949b9ede7809395f209dd9910e331e8372e6682ba4bebcc020b
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Wed, 28 Aug 2019 14:42:19 +0200
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      MYSQL_DATABASE:       notepad
+      MYSQL_ROOT_PASSWORD:  root
+    Mounts:
+      /home/jenkins/agent from workspace-volume (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-b59kh (ro)
+  jnlp:
+    Container ID:   docker://4c645d1b691e799547af9b4d2f717296b223e613dcd687a412da20f8255bc792
+    Image:          jenkins/jnlp-slave:alpine
+    Image ID:       docker-pullable://jenkins/jnlp-slave@sha256:7318df1def4844a2ccf200f2fd28968046e901fbec661feaca45e20ce018f593
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Wed, 28 Aug 2019 14:42:19 +0200
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      JENKINS_SECRET:         026c964324156350c7951cccb4b8e5c3488318d500d09bb9bb6f29d5c01c9bd8
+      JENKINS_TUNNEL:         jenkins-jnlp:50000
+      JENKINS_AGENT_NAME:     labels-must-match-532t6-4p2mt
+      JENKINS_NAME:           labels-must-match-532t6-4p2mt
+      JENKINS_AGENT_WORKDIR:  /home/jenkins/agent
+      JENKINS_URL:            http://jenkins-ui:8080/
+    Mounts:
+      /home/jenkins/agent from workspace-volume (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-b59kh (ro)
+Conditions:
+  Type           Status
+  Initialized    True 
+  Ready          True 
+  PodScheduled   True 
+Volumes:
+  workspace-volume:
+    Type:    EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:  
+  default-token-b59kh:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-b59kh
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type    Reason                 Age   From                   Message
+  ----    ------                 ----  ----                   -------
+  Normal  Scheduled              28s   default-scheduler      Successfully assigned labels-must-match-532t6-4p2mt to 172.17.8.102
+  Normal  SuccessfulMountVolume  27s   kubelet, 172.17.8.102  MountVolume.SetUp succeeded for volume "workspace-volume"
+  Normal  SuccessfulMountVolume  27s   kubelet, 172.17.8.102  MountVolume.SetUp succeeded for volume "default-token-b59kh"
+  Normal  Pulled                 27s   kubelet, 172.17.8.102  Container image "jorgeacetozi/maven:3.5.0-jdk-8-alpine" already present on machine
+  Normal  Created                27s   kubelet, 172.17.8.102  Created container
+  Normal  Started                27s   kubelet, 172.17.8.102  Started container
+  Normal  Pulled                 27s   kubelet, 172.17.8.102  Container image "mysql:5.7" already present on machine
+  Normal  Created                27s   kubelet, 172.17.8.102  Created container
+  Normal  Started                26s   kubelet, 172.17.8.102  Started container
+  Normal  Pulled                 26s   kubelet, 172.17.8.102  Container image "jenkins/jnlp-slave:alpine" already present on machine
+  Normal  Created                26s   kubelet, 172.17.8.102  Created container
+  Normal  Started                26s   kubelet, 172.17.8.102  Started container

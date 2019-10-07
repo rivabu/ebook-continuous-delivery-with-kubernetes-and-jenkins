@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: jenkins
-        image: jorgeacetozi/jenkins:2.60.3
+        image: jenkins/jenkins:lts
         ports:
         - name: http-port
           containerPort: 8080
@@ -32,3 +32,4 @@ spec:
       - name: github-private-key-volume
         secret:
           secretName: github-private-key-secret
+

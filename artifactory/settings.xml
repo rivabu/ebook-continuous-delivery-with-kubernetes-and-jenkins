@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<settings xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd" xmlns="http://maven.apache.org/SETTINGS/1.1.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <servers>
+<settings xmlns="http://maven.apache.org/settings/1.0.0">
+<servers>
     <server>
-      <username></username>
-      <password></password>
+      <username>deployer</username>
+      <password>AP2PztrQhs68KCRq757QSS78fgJ</password>
       <id>central</id>
     </server>
     <server>
-      <username></username>
-      <password></password>
+      <username>deployer</username>
+      <password>AP2PztrQhs68KCRq757QSS78fgJ</password>
       <id>snapshots</id>
     </server>
   </servers>
